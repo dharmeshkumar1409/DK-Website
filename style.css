@@ -1,0 +1,127 @@
+:root {
+    --clr-neon: hsl(136, 100%, 53%);
+    --clr-bneon: hsl(227, 100%, 56%);
+}
+
+body {
+    background-color: #000000;
+}
+
+.header,
+.head {
+    color: #00ff0d;
+    font-family: Ubuntu;
+    cursor: default;
+}
+
+.header {
+    text-align: center;
+}
+
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 40px;
+}
+
+.projects {
+    margin-bottom: 3.5em;
+    margin-left: 1.5em;
+    margin-right: 1.5em;
+}
+
+.footer {
+    margin-bottom: 3em;
+    justify-content: end;
+}
+
+.button,
+.blue-button {
+    font-family: Ubuntu;
+    font-size: 1.3rem;
+
+    display: inline-block;
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--clr-neon);
+    border: var(--clr-neon) 0.125em solid;
+
+    padding: 0.25em 1em;
+    border-radius: 0.25em;
+
+    text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em currentColor;
+
+    box-shadow: inset 0 0 0.5em 0 var(--clr-neon), 0 0 0.5em 0 var(--clr-neon);
+
+    position: relative;
+}
+
+.blue-button {
+    color: var(--clr-bneon);
+    border: var(--clr-bneon) 0.125em solid;
+    text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em currentColor;
+    box-shadow: inset 0 0 0.5em 0 var(--clr-bneon), 0 0 0.5em 0 var(--clr-bneon);
+
+}
+
+.button::before,
+.blue-button::before {
+    pointer-events: none;
+    content: "";
+    position: absolute;
+    background: var(--clr-neon);
+    top: 120%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    transform: perspective(1em) rotateX(40deg) scale(1, 0.35);
+    filter: blur(1em);
+    opacity: 0.7;
+}
+
+.blue-button::before {
+    background: var(--clr-bneon);
+}
+
+.button::after,
+.blue-button::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    box-shadow: 0 0 2em 0.5em var(--clr-neon);
+    opacity: 0;
+    background-color: var(--clr-neon);
+    z-index: -1;
+    transition: opacity 100ms linear;
+}
+
+.blue-button::after {
+    box-shadow: 0 0 2em 0.5em var(--clr-bneon);
+    background-color: var(--clr-bneon);
+}
+
+.button:hover,
+.button:focus,
+.blue-button:hover,
+.blue-button:focus {
+    color: #000000;
+    text-shadow: none;
+}
+
+.button:hover::before,
+.button:focus::before,
+.blue-button:hover::before,
+.blue-button:focus::before {
+    opacity: 1;
+}
+
+.button:hover::after,
+.button:focus::after,
+.blue-button:hover::after,
+.blue-button:focus::after {
+    opacity: 1;
+}

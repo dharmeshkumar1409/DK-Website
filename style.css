@@ -22,7 +22,7 @@ body {
     display: flex;
     flex-wrap: wrap;
     margin: 40px;
-    justify-centent: center;
+    justify-content: center;
 }
 
 .projects {
